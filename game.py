@@ -20,7 +20,12 @@ paddlerect.center = (200,200)
 pygame.key.set_repeat(10)
 font1 = pygame.font.SysFont("calibri",40)
 font2 = pygame.font.SysFont("calibri",20)
-
+class Paddle():
+    def __init__(self,img,speedX,speedY):
+        self.img = img
+        self.speedX = speedX
+        self.speedY = speedY
+        
 while True:
     if fired:
         if ballrect.x <= 0 or ballrect.x > 320:
@@ -64,5 +69,13 @@ while True:
 
     text = font2.render("I use Python", True,(255,255,255))
     screen.blit(text,(50,50))
+
+    text = font2.render("position X of ball is %s"%ballrect.x, True,(255,255,255))
+    screen.blit(text,(100,100))
+    text = font2.render("position Y of ball is %s"%ballrect.y, True,(255,255,255))
+    screen.blit(text,(100,120))
+    text = font2.render("now the fps is %s"%fps, True,(255,255,255))
+    screen.blit(text,(100,140))
+
     pygame.display.update()
     clock.tick(fps)
